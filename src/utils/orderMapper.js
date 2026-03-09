@@ -1,7 +1,7 @@
-function mapOrderPayload(payload) {
-  const itensOriginais = Array.isArray(payload.itens) ? payload.itens : [];
+// Responsável por adaptar o payload recebido para o formato interno da aplicação
 
-  const itensConvertidos = itensOriginais.map((item) => ({
+function mapOrderPayload(payload) {
+  const itensConvertidos = (payload.itens || []).map((item) => ({
     productId: item.idItem,
     quantity: item.quantidadeItem,
     price: item.valorItem
